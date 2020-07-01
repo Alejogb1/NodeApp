@@ -1,0 +1,23 @@
+{
+  "name": "NodeApp",
+  "version": "1.0.0",
+  "description": "> Create public and private stories from your life",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alejogb1/NodeApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alejogb1/NodeApp/issues"
+  },
+  "homepage": "https://github.com/Alejogb1/NodeApp#readme",
+  "dependencies": {
+    "mongoose": "^5.9.20"
+  }
+}
