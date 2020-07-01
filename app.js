@@ -1,9 +1,12 @@
 const dotenv = require("dotenv")
 const express = require("express")
 const connectDB = require("./config/db")
+const connectMongoDB = require("./config/db")
 
 // Load config
 dotenv.config({path: "./config/config.env"})
+
+connectMongoDB()
 
 const app = express()
 
