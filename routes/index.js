@@ -4,15 +4,15 @@ const router = express.Router();
 //Description: Login/Landing Page
 //Router: GET /
 
-router.get("/", (req, res) => {
-        res.send("Login")
+router.get("/", (req, res) => { // req means request and res response
+        res.render("login")
 })
 
 //Description: Dashboard
 //Router: GET /dasboard
 
-router.get("/", (req, res) => {
-        res.send("Dashboard")
+router.get("/dashboard", (req, res) => {
+        res.render("dashboard")
 })
 
 module.exports = router;
