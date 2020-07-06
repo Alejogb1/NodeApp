@@ -16,8 +16,9 @@ if (process.env.NODE_ENV === "development"){
     app.use(morgan("dev"))
 } 
 // Handlebars
+app.set('view engine', 'handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main', extname: ".hbs"})); 
-app.set('view engine', '.hbs');
+
   
 // Routes
 
