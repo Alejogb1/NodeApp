@@ -22,7 +22,8 @@ app.engine('.hbs', exphbs({defaultLayout: 'main', extname: ".hbs"}));
 app.set('views', path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
 
-  
+// Static folder
+app.use(express.static(path.join(__dirname, "public")))
 // Routes
 
 app.use("/", require("./routes/index"))
