@@ -5,7 +5,10 @@ const router = express.Router();
 //Router: GET /
 
 router.get("/", (req, res) => { // req means request and res response
-        res.render("login")
+        res.render("login" ,{
+                layout: "login",
+                
+        })
 })
 
 //Description: Dashboard
