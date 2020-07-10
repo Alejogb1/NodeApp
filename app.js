@@ -1,4 +1,6 @@
 const dotenv = require("dotenv")
+var path = require("path");
+
 const express = require("express")
 const exphbs = require("express-handlebars")
 const connectDB = require("./config/db")
@@ -16,8 +18,9 @@ if (process.env.NODE_ENV === "development"){
     app.use(morgan("dev"))
 } 
 // Handlebars
-app.set('view engine', 'handlebars');
-app.engine('handlebars', exphbs({defaultLayout: 'main', extname: ".hbs"})); 
+app.engine('.hbs', exphbs({defaultLayout: 'main', extname: ".hbs"})); 
+app.set('views', path.join(__dirname, "views"));
+app.set("view engine", ".hbs");
 
   
 // Routes
