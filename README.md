@@ -1,6 +1,8 @@
 # NodeApp
 
-![image](https://user-images.githubusercontent.com/52103963/87227615-a0d19800-c372-11ea-9150-15ed9dc129c2.png)> Create public and private stories from your life
+> Create, delete & edit.
+
+![image](https://user-images.githubusercontent.com/52103963/87227615-a0d19800-c372-11ea-9150-15ed9dc129c2.png)
 
 This app uses Node.js/Express/MongoDB with Google OAuth for authentication
 
