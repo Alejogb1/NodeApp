@@ -1,5 +1,6 @@
 # NodeApp
-(https://imgur.com/a/jcDLEQc)
+
+![NodeApp_Login](https://imgur.com/a/jcDLEQc)
 > Create public and private stories from your life
 
 This app uses Node.js/Express/MongoDB with Google OAuth for authentication
