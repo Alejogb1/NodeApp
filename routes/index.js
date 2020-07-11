@@ -6,8 +6,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => { // req means request and res response
         res.render("login" ,{
-                layout: "login",
-                
+                layout: "login",       
         })
 })
 
