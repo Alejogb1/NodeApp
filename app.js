@@ -1,9 +1,7 @@
 const dotenv = require("dotenv")
 var path = require("path");
-
 const express = require("express")
 const exphbs = require("express-handlebars")
-const connectDB = require("./config/db")
 const connectMongoDB = require("./config/db")
 const morgan = require("morgan")
 const app = express()
@@ -33,16 +31,17 @@ app.set('views', path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
 
 // Sessions 
-app.use(session ({
+app.use(
+    session({
     secret: "keyboard cat",
     resave: false, // We don't want to save  a session if nothinh is modified
-    saveUninitialized: true, // Don't create a session until smt is stored
+    saveUninitialized: false, // Don't create a session until smt is stored
    /* cookie: { secure: true }*/ // This won't work without https
-}))
+    })
+)
 // Static folder
 app.use(express.static(path.join(__dirname, "public")))
 // Routes
-{}
 app.use("/", require("./routes/index"))
 app.use("/", require("./routes/auth"))
 
