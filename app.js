@@ -32,7 +32,7 @@ app.set("view engine", ".hbs");
 
 // Sessions 
 app.use(
-    session({
+    passport.session({
     secret: "keyboard cat",
     resave: false, // We don't want to save  a session if nothinh is modified
     saveUninitialized: false, // Don't create a session until smt is stored
