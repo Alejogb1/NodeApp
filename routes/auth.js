@@ -5,12 +5,12 @@ const router = express.Router();
 //Description: Auth with google
 //Router: GET /auth/google
 
-router.get("/google",  passport.authenticate('google', { scope: ['profile'] }))
+router.get("/auth/google",  passport.authenticate('google', { scope: ['profile'] }))
 
 //Description: google auth callback
 //Router: GET /auth/google/callback
 
-router.get("/google/callback", passport.authenticate("google",{ failureRedirect: "/" }),
+router.get("/auth/google/callback", passport.authenticate("google",{ failureRedirect: "/" }),
     (req, res) => {
         res.redirect("/dashboard")
     }
