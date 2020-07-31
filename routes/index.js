@@ -1,10 +1,10 @@
 const express = require("express")
 const router = express.Router();
-
+const {ensureAuth, ensureGuest} = require("../middleware/auth")
 //Description: Login/Landing Page
 //Router: GET /
 
-router.get("/", (req, res) => { // req means request and res response
+router.get("/", ensureGuest, (req, res) => { // req means request and res response
         res.render("login" ,{
                 layout: "login",       
         })
@@ -13,7 +13,7 @@ router.get("/", (req, res) => { // req means request and res response
 // @desc: Dashboard
 // @route GET /dasboard
 
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", ensureAuth, (req, res) => {
         res.render("dashboard")
 })
 
