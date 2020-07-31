@@ -10,11 +10,19 @@ router.get("/", (req, res) => { // req means request and res response
         })
 })
 
-//Description: Dashboard
-//Router: GET /dasboard
+// @desc: Dashboard
+// @route GET /dasboard
 
 router.get("/dashboard", (req, res) => {
         res.render("dashboard")
+})
+
+// @desc Logout user 
+// @route /auth/logout
+
+router.get("/logout", (req, res) => {
+        req.logout()
+        res.redirect("/")
 })
 
 module.exports = router;
