@@ -19,6 +19,7 @@ require("./config/passport")(passport) // Second parentesis is an argument
 app.use(passport.initialize())
 app.use(passport.session())
 
+
 connectMongoDB()
 
 // Logging
@@ -39,6 +40,7 @@ app.use(
    /* cookie: { secure: true }*/ // This won't work without https
     })
 )
+
 // Static folder
 app.use(express.static(path.join(__dirname, "public")))
 // Routes
