@@ -30,11 +30,11 @@ module.exports = function (passport){
           }
       }
     ))
-    passport.serializeUser(function (user, done){ // Grab User Infor and "done"
+    passport.serializeUser((user, done) => { // Grab User Infor and "done"
         done(null, user.id); // user.id is MD ID, NOT google's id
       });
       
-      passport.deserializeUser(function(id, done){
+      passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => done(err, user));
       });
 }
