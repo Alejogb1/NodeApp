@@ -25,13 +25,13 @@ app.use((req, res, next) => {
     next();    
 })
 // Sessions 
-app.use(
-    passport.session({
+app.use(require("express-session")({
     secret: "keyboard cat",
     resave: false, // We don't want to save  a session if nothinh is modified
     saveUninitialized: false, // Don't create a session until smt is stored
    /* cookie: { secure: true }*/ // This won't work without https
-    })
+   })
+    
 )
 
 connectMongoDB()
