@@ -6,7 +6,7 @@ module.exports = function (passport){
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "/dashboard"
+        callbackURL: "http://localhost:3000/dashboard"
       },
       async (accessToken, refreshToken, profile, done) => {
           const newUser = { // By creating a "newUser", MD creates an unique ID for it.
