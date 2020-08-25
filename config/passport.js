@@ -6,7 +6,7 @@ module.exports = function (passport){
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "/auth/google/callback"
+        callbackURL: "/dashboard"
       },
       async (accessToken, refreshToken, profile, done) => {
           const newUser = { // By creating a "newUser", MD creates an unique ID for it.
@@ -14,9 +14,9 @@ module.exports = function (passport){
               displayName: profile.displayName,
               firstName: profile.name.givenName,
               lastName: profile.name.familyName,
-              image: profile.photos[0].value
+              image: profile.photos[0].value,
           }
-          console.log(newUser)
+          console.log("newUser",newUser,clientID, clientSecret )
           try {
             let user = await User.findOne({ googleId: profile.id})
             if (user){
