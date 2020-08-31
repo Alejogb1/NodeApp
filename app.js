@@ -4,7 +4,6 @@ const express = require("express")
 const exphbs = require("express-handlebars")
 const connectMongoDB = require("./config/db")
 const morgan = require("morgan")
-const app = express()
 const passport = require("passport")
 const session = ("express-session")
 
@@ -15,15 +14,12 @@ dotenv.config({path: "./config/config.env"})
 
 require("./config/passport")(passport) // Second parentesis is an argument
 
-// Passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
 
-app.use((req, res, next) => {
-    console.log(req.session);
-    console.log(req.user);
-    next();    
-})
+connectMongoDB()
+
+const app = express()
+
+
 // Sessions 
 app.use(require("express-session")({
     secret: "keyboard cat",
@@ -34,12 +30,18 @@ app.use(require("express-session")({
     
 )
 
-connectMongoDB()
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
-// Logging
-if (process.env.NODE_ENV === "development"){
-    app.use(morgan("dev"))
-} 
+app.use((req, res, next) => {
+    console.log(req.session);
+    console.log(req.user);
+    next();    
+})
+
+
+
 // Handlebars
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: ".hbs"})); 
 app.set('views', path.join(__dirname, "views"));

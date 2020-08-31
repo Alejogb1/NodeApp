@@ -1,4 +1,4 @@
-var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+var GoogleStrategy = require( 'passport-google-oauth20' ).Strategy;
 const mongoose = require("mongoose");
 const User = require("../models/User")
 
@@ -30,11 +30,11 @@ module.exports = function (passport){
           }
       }
     ))
-    passport.serializeUser((user, done) => { // Grab User Infor and "done"
-        done(null, user.id); // user.id is MD ID, NOT google's id
-      });
-      
-      passport.deserializeUser((id, done) => {
-        User.findById(id, (err, user) => done(err, user));
-      });
+    passport.serializeUser((user, done) => {
+      done(null, user.id)
+    })
+  
+    passport.deserializeUser((id, done) => {
+      User.findById(id, (err, user) => done(err, user))
+    })
 }

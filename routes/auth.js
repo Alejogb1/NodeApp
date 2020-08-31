@@ -10,7 +10,7 @@ router.get("/auth/google", passport.authenticate('google', { scope: ['profile'] 
 //Description: google auth callback
 //Router: GET /auth/google/callback
 
-router.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }),
+router.get("/dashboard", passport.authenticate("google", { failureRedirect: "/" }),
     (req, res) => {
         req.session.isAuthenticated = true;
         res.redirect("/dashboard")
