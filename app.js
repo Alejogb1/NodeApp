@@ -5,7 +5,8 @@ const exphbs = require("express-handlebars")
 const connectMongoDB = require("./config/db")
 const morgan = require("morgan")
 const passport = require("passport")
-const session = ("express-session")
+const session = require("express-session")
+
 
 // Load config
 dotenv.config({path: "./config/config.env"})
@@ -21,7 +22,7 @@ const app = express()
 
 
 // Sessions 
-app.use(require("express-session")({
+app.use(session({
     secret: "keyboard cat",
     resave: false, // We don't want to save  a session if nothinh is modified
     saveUninitialized: false, // Don't create a session until smt is stored
@@ -47,9 +48,9 @@ app.engine('.hbs', exphbs({defaultLayout: 'main', extname: ".hbs"}));
 app.set('views', path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
 
-
 // Static folder
 app.use(express.static(path.join(__dirname, "public")))
+
 // Routes
 app.use("/", require("./routes/index"))
 app.use("/", require("./routes/auth"))
