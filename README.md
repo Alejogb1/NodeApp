@@ -25,5 +25,4 @@ npm run dev
 npm start
 ```
 going well.
--
 
