@@ -2,7 +2,7 @@ const dotenv = require("dotenv")
 var path = require("path");
 const express = require("express")
 const exphbs = require("express-handlebars")
-const connectMongoDB = require("./config/db")
+const connectDB = require("./config/db")
 const morgan = require("morgan")
 const passport = require("passport")
 const session = require("express-session")
@@ -16,7 +16,7 @@ dotenv.config({path: "./config/config.env"})
 require("./config/passport")(passport) // Second parentesis is an argument
 
 
-connectMongoDB()
+connectDB()
 
 const app = express()
 
@@ -24,7 +24,7 @@ const app = express()
 // Sessions 
 app.use(session({
     secret: "keyboard cat",
-    resave: false, // We don't want to save  a session if nothinh is modified
+    resave: false, // We don't want to save  a session if nothing is modified
     saveUninitialized: false, // Don't create a session until smt is stored
    /* cookie: { secure: true }*/ // This won't work without https
    })
