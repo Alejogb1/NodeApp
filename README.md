@@ -24,5 +24,5 @@ npm run dev
 # Run in production
 npm start
 ```
-going wel
+going well.
 
