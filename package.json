@@ -27,7 +27,7 @@
     "express-session": "^1.17.1",
     "gitignore": "^0.6.0",
     "method-override": "^3.0.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.9.20",
     "morgan": "^1.10.0",
     "node": "^14.4.0",
